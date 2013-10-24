@@ -116,7 +116,19 @@ QImage PListLoader::getImage(QString name)
     if (frames.contains(name))
     {
         qDebug() << "GET IMAGE " << frames.value(name) << getValue(frames.value(name), "textureRect");
-        return loadedImage.copy(getValue(frames.value(name), "textureRect").toRect());
+        if (getValue(frames.value(name), "textureRect").isValid())
+        {
+            return loadedImage.copy(getValue(frames.value(name), "textureRect").toRect());
+        }
+        else if (getValue(frames.value(name), "width").isValid())
+        {
+            return loadedImage.copy(QRect(
+                    getValue(frames.value(name), "x").toInt(),
+                    getValue(frames.value(name), "y").toInt(),
+                    getValue(frames.value(name), "width").toInt(),
+                    getValue(frames.value(name), "height").toInt()
+            ));
+        }
     }
     return QImage();
 

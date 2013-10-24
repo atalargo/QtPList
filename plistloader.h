@@ -28,8 +28,6 @@
 #include <QImage>
 #include <QtXml/QDomDocument>
 
-// TODO: Voir QDeclarativeImageProvider pour peut être changer le type de fonctionnement
-
 class PListLoader : public QObject
 {
     Q_OBJECT
@@ -49,7 +47,7 @@ public:
     Q_INVOKABLE QMultiMap<QString, QVariant> getFrames();
 
     int getErrorLine() { return errorLine;}
-    int gerErrorColumn() {return errorColumn;}
+    int getErrorColumn() {return errorColumn;}
     QString getErrorMessage() { return errorMsg;}
 
 signals:

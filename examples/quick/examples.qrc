@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>examples_qml.png</file>
+        <file>examples_qml.plist</file>
+        <file>qml/quick/main.qml</file>
+    </qresource>
+</RCC>
